@@ -1,0 +1,58 @@
+body { 
+	margin: 0;
+	font-family:Arial,"Helvetica Neue",
+	Helvetica,sans-serif;
+	font-size: 17px;
+	color: #926239;
+	line-height:1.6;
+ }
+
+ #showcase{
+ 	background-image: url('../img/egg.jpg');
+ 	background-size: cover;
+ 	background-position: center;
+ 	height: 100vh;
+ 	
+
+
+ }
+
+ .main-nav 
+ {
+ 	float: right;
+ 	list-style: none;
+ 	margin-top: 30px;
+
+ }
+
+ .main-nav li
+ {
+ 	display:inline-block;
+ }
+
+ .main-nav li a 
+ {
+ 	color: white;
+ 	text-decoration:none;
+ 	padding: 5px 20px;
+ 	font-family:"Roboto",sans-serif;
+ 	font-size:15px;
+
+ }
+
+ .main-nav li.active a 
+ {
+ 	border: 1px solid white;
+ }
+
+ .main-nav li a:hover
+ {
+ 	border: 1px solid white;
+ }
+
+ .row
+ {
+ 	max-width: 1200px;
+ 	margin: 0;
+ }
+
