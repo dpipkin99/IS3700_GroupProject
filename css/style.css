@@ -89,3 +89,17 @@ p {
     text-align: center;
     font-family: "Roboto";
 }
+
+
+/* css for shop*/
+
+#shopContainer {
+    display: grid;
+    grid-template-areas: 'itemsTitle cartTitle' 'itemsForSaleContainer cart';
+}
+
+#itemsForSaleContainer {
+    display: grid;
+    grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
+    grid-area: itemsForSaleContainer;
+}
