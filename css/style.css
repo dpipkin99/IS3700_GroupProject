@@ -95,11 +95,44 @@ p {
 
 #shopContainer {
     display: grid;
-    grid-template-areas: 'itemsTitle cartTitle' 'itemsForSaleContainer cart';
+    grid-template-areas: 'itemsForSaleContainer cartContainer';
+    background-color: rgba(0, 0, 0, 0.452);
 }
 
 #itemsForSaleContainer {
     display: grid;
     grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
     grid-area: itemsForSaleContainer;
+    border-right: 1px solid #fff;
+}
+
+.cartRow {
+    display: flex;
+}
+
+.cartItem {
+    width: 45%;
+}
+
+.cartQuantity {
+    width: 35%;
+}
+
+.cartPrice {
+    width: 20%;
+}
+
+.cartHeader {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+    padding: 0px 40px;
+}
+
+.cartColumn {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
 }
