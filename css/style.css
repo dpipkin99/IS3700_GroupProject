@@ -91,6 +91,22 @@ p {
 }
 
 
+/* Button CSS */
+
+.buttonDefault {
+    font-size: 0.75em;
+    border-radius: 8px;
+}
+
+.buttonAdd {
+    background-color: royalblue;
+}
+
+.buttonRemove {
+    background-color: red;
+}
+
+
 /* css for shop*/
 
 #shopContainer {
