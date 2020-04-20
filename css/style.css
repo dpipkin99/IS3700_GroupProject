@@ -126,10 +126,6 @@ p {
     border-right: 1px solid #fff;
 }
 
-#cartContainer {
-    overflow-y: auto;
-}
-
 .cartRow {
     display: flex;
 }
@@ -159,4 +155,13 @@ p {
     padding-bottom: 10px;
     margin-top: 10px;
     text-align: center;
+}
+
+
+/* Checkout design */
+
+.checkout {
+    display: grid;
+    grid-template-areas: 'information checkout';
+    background-color: rgba(0, 0, 0, 0.452);
 }
