@@ -71,7 +71,8 @@ function addItemToCart(title, price) {
     cartRow.innerHTML = cartRowContents;
     cartItems.append(cartRow);
     updateCartTotal();
-    cartRow.querySelectorAll('buttonRemove')[0].addEventListener('click', removeCartButton)
+    cartRow.querySelectorAll('.buttonRemove')[0].addEventListener('click', removeCartButton);
+    cartRow.querySelectorAll('.quantityInput')[0].addEventListener('change', quantityChanged);
 }
 
 
