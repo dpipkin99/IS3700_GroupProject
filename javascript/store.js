@@ -24,6 +24,8 @@ function ready(event) {
         var button = addToCartButtons[i];
         button.addEventListener('click', addToCartClicked);
     }
+    var purchaseButton = document.querySelector("#confirmPayment");
+    purchaseButton.addEventListener('click', submitPayment);
 }
 
 function removeCartButton(event) {
@@ -114,5 +116,32 @@ function updateCart() {
     }
     sessionStorage.setItem("cartContents", JSON.stringify(cartContents))
     sessionStorage.setItem("total", total);
+
+}
+
+// modal code
+
+var modal = document.querySelector("#purchModal");
+var modalActivate = document.querySelector("#openPurchModal");
+var closeModal = document.querySelector("#closeModal");
+
+modalActivate.onclick = function() {
+    modal.style.display = "block";
+}
+closeModal.onclick = function() {
+    modal.style.display = "none";
+}
+
+function submitPayment() {
+
+    var cart = document.querySelector(".cartItems");
+    cart.innerHTML = "";
+    var modal = document.querySelector("#purchModal");
+    modal.onclick = function() {
+        modal.style.display = "none";
+    }
+    var total = document.querySelector('.totalPrice');
+    total.innerText = "$0.00"
+    window.alert("thank you for your purchase!");
 
 }
