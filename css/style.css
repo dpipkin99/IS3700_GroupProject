@@ -165,3 +165,18 @@ p {
     grid-template-areas: 'information checkout';
     background-color: rgba(0, 0, 0, 0.452);
 }
+
+#finalCartContainer {
+    grid-area: checkout;
+}
+
+.informationFields {
+    grid-area: information;
+}
+
+.infoInput {}
+
+.confirmShippin {
+    margin: auto;
+    align-content: center;
+}
