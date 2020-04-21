@@ -10,6 +10,13 @@ body {
     height: 100vh;
 }
 
+/* Media Query */
+@media screen and (max-width:768px) {
+    
+    .row {
+        width:100%;
+    }
+}
 
 /* Grid design */
 
