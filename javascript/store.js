@@ -7,8 +7,20 @@ if (document.readyState == 'loading') {
 }
 // detects if the page is ready to go
 function ready(event) {
-    var removeButton = document.querySelectorAll(".buttonRemove");
+    var testForSavedCart = sessionStorage;
+    for (var i = 0; i < testForSavedCart.length; i++) {
+        if (sessionStorage.cartContents != null) {
+            var savedCart = JSON.parse(sessionStorage.cartContents);
+            var title = savedCart.title;
+            var price = savedCart.price;
+            var quantity = savedCart.quantity;
+            for (var i = 0; i < title.length; i++) {
+                restoreSavedCart(title[i], price[i], quantity[i]);
+            }
+        }
+    }
 
+    var removeButton = document.querySelectorAll(".buttonRemove");
     for (var i = 0; i < removeButton.length; i++) {
         var button = removeButton[i];
         button.addEventListener("click", removeCartButton);
@@ -119,29 +131,32 @@ function updateCart() {
 
 }
 
-// modal code
+function restoreSavedCart(title, price, quantity) {
 
-var modal = document.querySelector("#purchModal");
-var modalActivate = document.querySelector("#openPurchModal");
-var closeModal = document.querySelector("#closeModal");
-
-modalActivate.onclick = function() {
-    modal.style.display = "block";
-}
-closeModal.onclick = function() {
-    modal.style.display = "none";
-}
-
-function submitPayment() {
-
-    var cart = document.querySelector(".cartItems");
-    cart.innerHTML = "";
-    var modal = document.querySelector("#purchModal");
-    modal.onclick = function() {
-        modal.style.display = "none";
+    var cartRow = document.createElement('div');
+    cartRow.classList.add('cartRow')
+    var cartItems = document.querySelectorAll('.cartItems')[0];
+    var cartItemNames = document.querySelectorAll('.cartItemTitle');
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('this item has already been added to the cart');
+            return;
+        }
     }
-    var total = document.querySelector('.totalPrice');
-    total.innerText = "$0.00"
-    window.alert("thank you for your purchase!");
-
+    var cartRowContents = `
+    <div class="inCart cartItem cartColumn">
+        <span class="cartItemTitle">${title}</span>
+    </div>
+    <span class="cartPrice cartColumn">${price}</span>
+    <div class="cartQuantity cartColumn">
+        <input class="quantityInput" type="number" value="${quantity}"></div>
+    <div class="cartColumn">    <button class="buttonDefault buttonRemove" type="button">REMOVE</button>
+    </div>
+    `;
+    cartRow.innerHTML = cartRowContents;
+    cartItems.append(cartRow);
+    updateCartTotal();
+    updateCart();
+    cartRow.querySelectorAll('.buttonRemove')[0].addEventListener('click', removeCartButton);
+    cartRow.querySelectorAll('.quantityInput')[0].addEventListener('change', quantityChanged);
 }
