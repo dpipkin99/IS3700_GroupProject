@@ -5,6 +5,11 @@ if (document.readyState == 'loading') {
 }
 // detects if the page is ready to go
 function ready(event) {
+    document.querySelector("#sameAddrAsShip").checked = false;
+    savedCart = JSON.parse(sessionStorage.getItem("cartContents"))
+    for (i = 0; i < savedCart.title.length; i++) {
+        restoreSavedCart(savedCart.title[i], savedCart.price[i], savedCart.quantity[i])
+    }
     var removeButton = document.querySelectorAll(".buttonRemove");
     for (var i = 0; i < removeButton.length; i++) {
         var button = removeButton[i];
@@ -14,7 +19,8 @@ function ready(event) {
     shipmentButton.addEventListener('click', validateShipInfo);
     var paymentButton = document.querySelector("#confirmPayment");
     paymentButton.addEventListener('click', validatePayInfo);
-
+    var shipInfoSameBox = document.querySelector("#sameAddrAsShip");
+    shipInfoSameBox.addEventListener("change", insertSameShipBillInfo)
 }
 
 
@@ -113,7 +119,7 @@ function validateShipInfo() {
     for (var i = 0; i < textInputs.length; i++) {
         if (textInputs[i].value == "" || textInputs[i].value == null) {
             for (var x = 0; x < labelTargets.length; x++) {
-                if (textInputs[i].id == labelTargets[x]) {
+                if (textInputs[i].id == labelTargets[x] && textInputs[i].id != "shipAddressLineTwo") {
                     var id = document.querySelector("#" + labelTargets[x]);
                     alert(listOfLabels[x].innerText + " cannot be empty.");
                     id.style.backgroundColor = "red";
@@ -140,9 +146,30 @@ function validateShipInfo() {
         passValidation = false;
     }
     if (passValidation) {
-
+        var shippingInfo = { Address: [document.querySelector("#shipFirstName").value], LastName: [document.querySelector("#shipLastName").value], Phone: [document.querySelector("#shipPhone").value], AddrLineOne: [document.querySelector("#shipAddressLineOne").value], AddrLineTwo: [document.querySelector("#shipAddressLineTwo").value], City: [document.querySelector("#shipCity").value], ZipCode: [document.querySelector("#shipZipCode").value], state: [document.querySelector("#shipState").value] }
+        sessionStorage.setItem("shippingInfo", JSON.stringify(shippingInfo));
         document.querySelector("#shippingInfo").style.display = "none";
         document.querySelector("#paymentInfo").style.display = "block";
+    }
+}
+
+function insertSameShipBillInfo() {
+    var infoBlock = document.querySelectorAll(".payInput");
+    if (document.querySelector("#sameAddrAsShip").checked == true) {
+        for (var i = 0; i < infoBlock.length; i++) {
+            infoBlock[i].disabled = true;
+        }
+        shipInfo = JSON.parse(sessionStorage.getItem("shippingInfo"));
+        document.querySelector("#payPhone").value = shipInfo.Phone;
+        document.querySelector("#PayAddressLineOne").value = shipInfo.AddrLineOne;
+        document.querySelector("#PayAddressLineTwo").value = shipInfo.AddrLineTwo;
+        document.querySelector("#PayCity").value = shipInfo.City;
+        document.querySelector("#payZipCode").value = shipInfo.ZipCode;
+        document.querySelector("#payState").value = shipInfo.state;
+    } else if (document.querySelector("#sameAddrAsShip").checked == false) {
+        for (var i = 0; i < infoBlock.length; i++) {
+            infoBlock[i].disabled = false;
+        }
     }
 }
 
