@@ -36,8 +36,10 @@ function ready(event) {
         var button = addToCartButtons[i];
         button.addEventListener('click', addToCartClicked);
     }
-    var purchaseButton = document.querySelector("#confirmPayment");
-    purchaseButton.addEventListener('click', submitPayment);
+    var shipmentButton = document.querySelector("#confirmshipment");
+    shipmentButton.addEventListener('click', validateShipInfo);
+    var paymentButton = document.querySelector("#confirmPayment");
+    paymentButton.addEventListener('click', validatePayInfo);
 }
 
 function removeCartButton(event) {
@@ -159,4 +161,110 @@ function restoreSavedCart(title, price, quantity) {
     updateCart();
     cartRow.querySelectorAll('.buttonRemove')[0].addEventListener('click', removeCartButton);
     cartRow.querySelectorAll('.quantityInput')[0].addEventListener('change', quantityChanged);
+}
+
+function validateShipInfo() {
+    var passValidation = true;
+    var listOfLabels = document.querySelectorAll("label");
+    var labelTargets = [];
+    var inputs = [];
+    var textInputs = document.querySelectorAll(".shipInput");
+    for (var i = 0; i < listOfLabels.length; i++) {
+        labelTargets.push(listOfLabels[i].htmlFor);
+    }
+
+    for (var i = 0; i < textInputs.length; i++) {
+        if (textInputs[i].value == "" || textInputs[i].value == null) {
+            for (var x = 0; x < labelTargets.length; x++) {
+                if (textInputs[i].id == labelTargets[x]) {
+                    var id = document.querySelector("#" + labelTargets[x]);
+                    alert(listOfLabels[x].innerText + " cannot be empty.");
+                    id.style.backgroundColor = "red";
+                    passValidation = false;
+                }
+            }
+        }
+
+    }
+    if (document.querySelector("#shipState").value == "blank") {
+        alert("State cannot be left blank.");
+        document.querySelector("#shipState").style.backgroundColor = "red";
+        passValidation = false;
+    }
+
+    if (document.querySelector("#shipPhone").value == "" || isNaN(document.querySelector("#shipPhone").value) || document.querySelector("#shipPhone").value.length != 10) {
+        alert("Phone number is Invalid");
+        document.querySelector("#shipPhone").style.backgroundColor = "red";
+        passValidation = false;
+    }
+    if (document.querySelector("#shipZipCode").value == "" || isNaN(document.querySelector("#shipZipCode").value) || document.querySelector("#shipZipCode").value.length != 5) {
+        alert("ZipCode is Invalid");
+        document.querySelector("#shipZipCode").style.backgroundColor = "red";
+        passValidation = false;
+    }
+    if (passValidation) {
+
+        document.querySelector("#shippingInfo").style.display = "none";
+        document.querySelector("#paymentInfo").style.display = "block";
+    }
+}
+
+function validatePayInfo() {
+    var passValidation = true;
+    var listOfLabels = document.querySelectorAll("label");
+    var labelTargets = [];
+    var inputs = [];
+    var textInputs = document.querySelectorAll(".payInput");
+    for (var i = 0; i < listOfLabels.length; i++) {
+        labelTargets.push(listOfLabels[i].htmlFor);
+    }
+
+    for (var i = 0; i < textInputs.length; i++) {
+        if (textInputs[i].value == "" || textInputs[i].value == null) {
+            for (var x = 0; x < labelTargets.length; x++) {
+                if (textInputs[i].id == labelTargets[x]) {
+                    var id = document.querySelector("#" + labelTargets[x]);
+                    alert(listOfLabels[x].innerText + " cannot be empty.");
+                    id.style.backgroundColor = "red";
+                    passValidation = false;
+                }
+            }
+        }
+
+    }
+    if (document.querySelector("#expiration").value == "") {
+        alert("Expiration cannot be blank");
+        id.style.backgroundColor = "red";
+        passValidation = false;
+    }
+    if (document.querySelector("#cardNumber").value == "" || isNaN(document.querySelector("#cardNumber").value) || document.querySelector("#cardNumber").value.length != 16) {
+        alert("CVV is Invalid");
+        id.style.backgroundColor = "red";
+        passValidation = false;
+    }
+    if (document.querySelector("#cvv").value == "" || isNaN(document.querySelector("#cvv").value) || document.querySelector("#cvv").value.length != 3) {
+        alert("CVV is Invalid");
+        id.style.backgroundColor = "red";
+        passValidation = false;
+    }
+    if (document.querySelector("#payState").value == "blank") {
+        alert("State cannot be left blank.");
+        id.style.backgroundColor = "red";
+        passValidation = false;
+    }
+    if (document.querySelector("#payZipCode").value == "" || isNaN(document.querySelector("#payZipCode").value) || document.querySelector("#payZipCode").value.length != 5) {
+        alert("ZipCode is Invalid");
+        document.querySelector("#payZipCode").style.backgroundColor = "red";
+        passValidation = false;
+    }
+    if (document.querySelector("#payPhone").value == "" || isNaN(document.querySelector("#payPhone").value) || document.querySelector("#payPhone").value.length != 10) {
+        alert("Phone number is Invalid");
+        id.style.backgroundColor = "red";
+        passValidation = false;
+    }
+
+    if (passValidation) {
+        window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    }
+
 }

@@ -42,19 +42,86 @@
             </div>
         </section>
         <div class="informationFields">
-            <div id="paymentInfo">
+            <fieldset id="shippingInfo">
+                <label for="shipFirstName">First Name</label> <input type="text" id="shipFirstName" class="shipInput shipInfo" required></br>
+                <label for="shipLastName">Last Name</label> <input type="text" id="shipLastName" class="shipInput shipInfo" required></br>
+                <label for="shipPhone">Phone Number</label><input type="tel" id="shipPhone" class="shipInputNum shipInfo" placeholder="xxxxxxxxxx" required></br>
+                <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo" id="shipAddressLineOne" required></br>
+                <label for="shipAddressLineTwo">Address Line Two</label> <input type="text" class="shipInput shipInfo" id="shipAddressLineTwo"></br>
+                <label for="shipCity">City</label> <input type="text" class="shipInput shipInfo" id="shipCity" required></br>
+                <label for="shipZipCode">Zip Code</label><input type="text" class="shipInputNum" id="shipZipCode" pattern="^\d{5}" required></br>
+                <label for="shipState">State</label>
+                <select id="shipState" class="shipInputState shipInfo" required>
+                            <option value="blank"> </option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select></br>
+                <button class="buttonPurchase buttonDefault" role="button" id="confirmshipment">Click to confirm Shipping address</button>
+            </fieldset>
+            <fieldset id="paymentInfo" hidden>
                 <label for="cardNumber">Card Number</label><input type="text" id="cardNumber" class="payInput" pattern="^\d{16}" required></br>
                 <label for="expiration">Expiration</label> <input type="date" id="expiration" required></br>
-                <label for="ccv">CCV</label><input type="text" id="ccv" pattern="^\d{3}" required></br>
+                <label for="cvv">CVV</label><input type="password" id="cvv" pattern="^\d{3}" required></br>
+                <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox"></br>
                 <label for="PayFirstName">First Name</label> <input type="text" id="PayFirstName" class="payInput" required></br>
                 <label for="PayLastName">Last Name</label> <input type="text" id="PayLastName" class="payInput" required></br>
-                <label for="PayPhoneNumber">Phone Number</label><input type="text" id="PayPhoneNumber" class="payInput" pattern="^\d{10}" required></br>
+                <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput" pattern="^\d{10}" required></br>
                 <label for="PayAddressLineOne">Address Line One</label> <input type="text" class="payInput" id="PayAddressLineOne" required></br>
                 <label for="PayAddressLineTwo">Address Line Two</label> <input type="text" class="payInput" id="PayAddressLineTwo"></br>
                 <label for="PayCity">City</label> <input type="text" class="payInput" id="PayCity" required></br>
-                <label for="PayZipCode">Zip Code</label><input type="text" class="payInput" id="PayZipCode" pattern="^\d{5}" required></br>
-                <label for="PayState">State</label>
-                <select id="PayState" class="payInput" required>
+                <label for="payZipCode">Zip Code</label><input type="text" class="payInput" id="payZipCode" pattern="^\d{5}" required></br>
+                <label for="payState">State</label>
+                <select id="payState" class="payInput" required>
+                            <option value="blank"> </option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -108,7 +175,7 @@
                             <option value="WY">Wyoming</option>
                         </select></br>
                 <button class="buttonPurchase buttonDefault" role="button" id="confirmPayment">Click to pay</button>
-            </div>
+            </fieldset>
         </div>
     </section>
 

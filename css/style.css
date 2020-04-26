@@ -10,13 +10,15 @@ body {
     height: 100vh;
 }
 
+
 /* Media Query */
+
 @media screen and (max-width:768px) {
-    
     .row {
-        width:100%;
+        width: 100%;
     }
 }
+
 
 /* Grid design */
 
@@ -199,8 +201,6 @@ p {
     grid-area: information;
 }
 
-.infoInput {}
-
 .confirmShippin {
     margin: auto;
     align-content: center;
@@ -211,7 +211,10 @@ p {
 
 input[type=text],
 select,
-textarea {
+textarea,
+input[type=tel],
+input[type=number],
+input[type=password] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -242,65 +245,4 @@ input[type=submit]:hover {
 }
 
 
-/*modal information pulled from w3Schools, need to reformat*/
-
-
-/* The Modal (background) */
-
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    margin: auto auto;
-    width: 50%;
-    /* Full width */
-    height: 50%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content/Box */
-
-.modaContent {
-    background-color: #000;
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
-}
-
-
-/* The Close Button */
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.payInput:valid {
-    background-color: lawnGreen;
-}
-
-.payInput:invalid {
-    background-color: crimson;
-}
+/* validation css */
