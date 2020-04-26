@@ -109,11 +109,11 @@
             </fieldset>
             <fieldset id="paymentInfo" hidden>
                 <label for="cardNumber">Card Number</label><input type="text" id="cardNumber" class="payInput" pattern="^\d{16}" required></br>
-                <label for="expiration">Expiration</label> <input type="date" id="expiration" required></br>
+                <label for="expiration">Expiration</label> <input type="text" id="expiration" pattern="\d{2}\w/\d{2}" placeholder="mm/yy" required></br>
                 <label for="cvv">CVV</label><input type="password" id="cvv" pattern="^\d{3}" required></br>
-                <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox"></br>
                 <label for="PayFirstName">First Name</label> <input type="text" id="PayFirstName" class="payInput" required></br>
                 <label for="PayLastName">Last Name</label> <input type="text" id="PayLastName" class="payInput" required></br>
+                <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox"></br>
                 <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput" pattern="^\d{10}" required></br>
                 <label for="PayAddressLineOne">Address Line One</label> <input type="text" class="payInput" id="PayAddressLineOne" required></br>
                 <label for="PayAddressLineTwo">Address Line Two</label> <input type="text" class="payInput" id="PayAddressLineTwo"></br>

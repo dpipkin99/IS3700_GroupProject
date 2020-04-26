@@ -1,5 +1,3 @@
-// store javascript
-
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
@@ -7,95 +5,25 @@ if (document.readyState == 'loading') {
 }
 // detects if the page is ready to go
 function ready(event) {
-    var testForSavedCart = sessionStorage;
-    for (var i = 0; i < testForSavedCart.length; i++) {
-        if (sessionStorage.cartContents != null) {
-            var savedCart = JSON.parse(sessionStorage.cartContents);
-            var title = savedCart.title;
-            var price = savedCart.price;
-            var quantity = savedCart.quantity;
-            for (var i = 0; i < title.length; i++) {
-                restoreSavedCart(title[i], price[i], quantity[i]);
-            }
-        }
-    }
-
     var removeButton = document.querySelectorAll(".buttonRemove");
     for (var i = 0; i < removeButton.length; i++) {
         var button = removeButton[i];
         button.addEventListener("click", removeCartButton);
     }
+    var shipmentButton = document.querySelector("#confirmshipment");
+    shipmentButton.addEventListener('click', validateShipInfo);
+    var paymentButton = document.querySelector("#confirmPayment");
+    paymentButton.addEventListener('click', validatePayInfo);
 
-    var quantityInputs = document.querySelectorAll('.quantityInput');
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i];
-        input.addEventListener('change', quantityChanged);
-    }
-    var addToCartButtons = document.querySelectorAll('.buttonAdd');
-    for (var i = 0; i < addToCartButtons.length; i++) {
-        var button = addToCartButtons[i];
-        button.addEventListener('click', addToCartClicked);
-    }
-    var purchButton = document.querySelector("#openPurchPage");
-    purchButton.addEventListener('click', openPurchPage)
 }
 
-function openPurchPage() {
-    window.location.href = 'cart.html';
-}
+
 
 function removeCartButton(event) {
     var buttonClicked = event.target;
     buttonClicked.parentElement.parentElement.remove();
     updateCartTotal();
     updateCart();
-}
-
-function quantityChanged(event) {
-    var input = event.target;
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1;
-    }
-    updateCartTotal();
-    updateCart();
-}
-
-function addToCartClicked(event) {
-    var button = event.target;
-    var shopItem = button.parentElement.parentElement;
-    var title = shopItem.querySelectorAll('.itemTitle')[0].innerText;
-    var price = shopItem.querySelectorAll('.itemPrice')[0].innerText;
-    addItemToCart(title, price);
-}
-
-function addItemToCart(title, price) {
-
-    var cartRow = document.createElement('div');
-    cartRow.classList.add('cartRow')
-    var cartItems = document.querySelectorAll('.cartItems')[0];
-    var cartItemNames = document.querySelectorAll('.cartItemTitle');
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
-            alert('this item has already been added to the cart');
-            return;
-        }
-    }
-    var cartRowContents = `
-    <div class="inCart cartItem cartColumn">
-        <span class="cartItemTitle">${title}</span>
-    </div>
-    <span class="cartPrice cartColumn">${price}</span>
-    <div class="cartQuantity cartColumn">
-        <input class="quantityInput" type="number" value="1"></div>
-    <div class="cartColumn">    <button class="buttonDefault buttonRemove" type="button">REMOVE</button>
-    </div>
-    `;
-    cartRow.innerHTML = cartRowContents;
-    cartItems.append(cartRow);
-    updateCartTotal();
-    updateCart();
-    cartRow.querySelectorAll('.buttonRemove')[0].addEventListener('click', removeCartButton);
-    cartRow.querySelectorAll('.quantityInput')[0].addEventListener('change', quantityChanged);
 }
 
 
@@ -113,8 +41,15 @@ function updateCartTotal() {
 
     }
     document.querySelector('.totalPrice').innerText = '$' + Math.round(total * 100) / 100;
+}
 
-
+function quantityChanged(event) {
+    var input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1;
+    }
+    updateCartTotal();
+    updateCart();
 }
 
 function updateCart() {
