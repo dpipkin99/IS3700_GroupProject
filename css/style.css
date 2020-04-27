@@ -304,6 +304,8 @@ input[type=submit]:hover {
 }
 
 /* home page */
+
 .homeinfo {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
 }
