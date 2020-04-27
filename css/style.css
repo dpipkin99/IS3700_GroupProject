@@ -305,5 +305,5 @@ input[type=submit]:hover {
 
 /* home page */
 .homeinfo {
-    font: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
