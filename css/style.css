@@ -325,9 +325,9 @@ input[type=submit]:hover {
 .footerItem1 {
     width: 100%;
     background-color: darkgray;
-    padding: 60px 0px;
-    
+    padding: 30px 0px;
+
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: x-small;
+    font-size: medium;
     color: white;
 }
