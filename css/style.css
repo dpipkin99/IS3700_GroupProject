@@ -309,3 +309,12 @@ input[type=submit]:hover {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
 }
+
+
+/* about page */
+
+.about-section {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    align-content: flex-end;
+}
