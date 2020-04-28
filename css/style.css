@@ -410,8 +410,32 @@ input[type=submit]:hover {
 
 .contactinfo {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
+
+    letter-spacing: 5px;
     color: yellow;
+    font-size: xx-large;
+}
+
+.phone {
+    outline-style: ridge;
+    outline-color: black;
+    text-align: center;
+    font: Georgia;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    
+}
+
+.contactemail {
+    outline-style: ridge;
+    outline-color: black;
+    text-align: center;
+    font: Georgia;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
 }
 
 /* The Close Button */
