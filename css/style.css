@@ -473,11 +473,6 @@ input[type=submit]:hover {
     font-size: x-large;
 }
 
-.opty {
-    color: palegoldenrod;
-    background-color: black;
-}
-
 .info {
     color: black;
 }
@@ -517,10 +512,11 @@ input[type=submit]:hover {
 /*footer*/
 
 .footerItem1 {
-    display: block;
+    position: fixed;
+    left: 0;
+    bottom: 0;
     width: 100%;
     background-color: palegoldenrod;
-    padding: 7px;
     font: Georgia;
     font-size: x-small;
     color: black;
