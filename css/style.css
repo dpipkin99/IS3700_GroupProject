@@ -393,6 +393,26 @@ input[type=submit]:hover {
     width: 80%;
 }
 
+.column {
+    float: left;
+    width: 50%;
+}
+
+
+
+.leftside {
+
+}
+
+.rightside {
+
+}
+
+.contactinfo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    color: yellow;
+}
 
 /* The Close Button */
 
@@ -449,6 +469,7 @@ input[type=submit]:hover {
 /*footer*/
 
 .footerItem1 {
+    display: block;
     width: 100%;
     background-color: black;
     padding: 5px;
