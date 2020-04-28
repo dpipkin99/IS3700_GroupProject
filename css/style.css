@@ -156,6 +156,7 @@ nav {
 .grid-container {
     display: grid;
     grid-template-areas: 'header' 'main' 'footer';
+
 }
 
 .item1 {
@@ -344,12 +345,12 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: red;
+    background-color: black;
 }
 
 .container {
     border-radius: 5px;
-    background-color: grey;
+    background-color: palegoldenrod;
     padding: 20px;
 }
 
@@ -412,30 +413,40 @@ input[type=submit]:hover {
     font-family: Georgia, 'Times New Roman', Times, serif;
 
     letter-spacing: 5px;
-    color: yellow;
+    color: palegoldenrod;
+    background-color: black;
     font-size: xx-large;
 }
 
 .phone {
-    outline-style: ridge;
-    outline-color: black;
+    outline-color: palegoldenrod;
     text-align: center;
     font: Georgia;
     color: white;
     text-transform: uppercase;
     letter-spacing: 5px;
-    
+    outline-style: dotted;
 }
 
 .contactemail {
-    outline-style: ridge;
-    outline-color: black;
+    outline-style: dotted;
+    outline-color: palegoldenrod;
     text-align: center;
     font: Georgia;
     color: white;
     text-transform: uppercase;
     letter-spacing: 5px;
 
+}
+
+.names {
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+    text-align: center;
+    font: Georgia;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
 /* The Close Button */
@@ -462,6 +473,11 @@ input[type=submit]:hover {
     font-size: x-large;
 }
 
+.opty {
+    color: palegoldenrod;
+    background-color: black;
+}
+
 .info {
     color: black;
 }
@@ -476,17 +492,25 @@ input[type=submit]:hover {
 }
 
 .story {
-    color: yellow;
+    color: palegoldenrod;
     text-align: center;
+    background-color: black;
 }
 
 .services {
-    color: yellow;
+    color: palegoldenrod;
     text-align: center;
+    background-color: black;
 }
 
+
+
 .location {
-    color: yellow;
+    color: palegoldenrod;
+    text-align: center;
+    background-color: black;
+}
+.map {
     text-align: center;
 }
 
@@ -495,10 +519,10 @@ input[type=submit]:hover {
 .footerItem1 {
     display: block;
     width: 100%;
-    background-color:darkgrey;
-    padding: 5px;
+    background-color: palegoldenrod;
+    padding: 7px;
     font: Georgia;
-    font-size: medium;
+    font-size: x-small;
     color: black;
     text-transform: uppercase;
     letter-spacing: 3px;
