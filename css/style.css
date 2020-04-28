@@ -209,7 +209,10 @@ footer {
 }
 
 p {
+    padding: 7px;
     color: white;
+    margin-left: 100px;
+    margin-right: 100px;
     text-align: center;
     font-family: sans-serif;
     font-size: 20px;
@@ -320,6 +323,11 @@ p {
 
 
 /* Contact Us Page */
+
+.contact-section {
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+}
 
 input[type=text],
 input[type=password],
@@ -493,7 +501,10 @@ input[type=submit]:hover {
     font-size: x-large;
     align-content: center;
 }
-
+.aboutus {
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+}
 .story {
     color: palegoldenrod;
     text-align: center;
@@ -526,7 +537,6 @@ input[type=submit]:hover {
     width: 100%;
     color: black;
     background-color: palegoldenrod;
-
     font: Georgia;
     text-transform: uppercase;
     letter-spacing: 3px;
