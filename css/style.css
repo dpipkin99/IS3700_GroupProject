@@ -472,7 +472,15 @@ input[type=submit]:hover {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
 }
-
+.OPTY {
+    color: palegoldenrod;
+    background-color: black;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+}
 .info {
     color: black;
 }
@@ -516,11 +524,11 @@ input[type=submit]:hover {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: palegoldenrod;
-    font: Georgia;
-    font-size: x-small;
     color: black;
+    background-color: palegoldenrod;
+
+    font: Georgia;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-align: left;
+    text-align: center;
 }
