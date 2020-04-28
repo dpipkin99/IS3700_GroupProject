@@ -43,19 +43,18 @@
         </section>
         <div class="informationFields">
             <fieldset id="shippingInfo">
-                <label for="shipFirstName">First Name</label> <input type="text" id="shipFirstName" class="shipInput shipInfo" required></br>
-                <label for="shipLastName">Last Name</label> <input type="text" id="shipLastName" class="shipInput shipInfo" required></br>
-                <label for="shipPhone">Phone Number</label><input type="tel" id="shipPhone" class="shipInputNum shipInfo" placeholder="(XXX)XXX-XXXX" pattern="(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})" required></br>
-                <!--Regular Expression taken from: https://regexr.com/38ohj -->
-                <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo" id="shipAddressLineOne" required></br>
-                <label for="shipEmail">Email Address</label><input type="email" class="shipInput shipInfo" id="shipEmail" pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g"
-                    required></br>
-                <!-- Regular Expression taken from https://regexr.com/2rhq7-->
-                <label for="shipAddressLineTwo">Address Line Two</label> <input type="text" class="shipInput shipInfo" id="shipAddressLineTwo"></br>
-                <label for="shipCity">City</label> <input type="text" class="shipInput shipInfo" id="shipCity" required></br>
-                <label for="shipZipCode">Zip Code</label><input type="text" class="shipInputNum" id="shipZipCode" pattern="^\d{5}" required></br>
+                <label for="shipFirstName">First Name</label> <input type="text" id="shipFirstName" class="shipInput shipInfo checkoutInput" required></br>
+                <label for="shipLastName">Last Name</label> <input type="text" id="shipLastName" class="shipInput shipInfo checkoutInput" required></br>
+                <label for="shipPhone">Phone Number</label><input type="text" id="shipPhone" class="shipInputNum shipInfo checkoutInput" placeholder="(XXX)XXX-XXXX" required></br>
+
+                <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineOne" required></br>
+                <label for="shipEmail">Email Address</label><input type="text" class="shipInput shipInfo checkoutInput" id="shipEmail" required></br>
+
+                <label for="shipAddressLineTwo">Address Line Two</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineTwo"></br>
+                <label for="shipCity">City</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipCity" required></br>
+                <label for="shipZipCode">Zip Code</label><input type="text" class="shipInputNum checkoutInput" id="shipZipCode" pattern="^\d{5}" required></br>
                 <label for="shipState">State</label>
-                <select id="shipState" class="shipInputState shipInfo" required>
+                <select id="shipState" class="shipInputState shipInfo checkoutInput" required>
                             <option value="blank"> </option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -112,20 +111,19 @@
                 <button class="buttonPurchase buttonDefault" role="button" id="confirmshipment">Click to confirm Shipping address</button>
             </fieldset>
             <fieldset id="paymentInfo" hidden>
-                <label for="cardNumber">Card Number</label><input type="text" id="cardNumber" class="payInputCard" pattern="^\d{16}" required></br>
-                <label for="expiration">Expiration</label> <input type="text" class="payInputCard" id="expiration" pattern="\d{2}\w/\d{2}" placeholder="mm/yy" required></br>
-                <label for="cvv">CVV</label><input type="password" id="cvv" pattern="^\d{3}" class="payInputCard" required></br>
-                <label for="NameOnCard">Name On Card</label> <input type="text" id="NameOnCard" class="payInputCard" required></br>
-                <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox" id="sameAddrAsShip"></br>
-                <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput" placeholder="(XXX)XXX-XXXX" pattern="(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})" required></br>
-                <label for="shipEmail">Email Address</label><input type="email" class="shipInput shipInfo" id="shipEmail" pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g"
-                    required></br>
-                <label for="PayAddressLineOne">Address Line One</label> <input type="text" class="payInput" id="PayAddressLineOne" required></br>
-                <label for="PayAddressLineTwo">Address Line Two</label> <input type="text" class="payInput" id="PayAddressLineTwo"></br>
-                <label for="PayCity">City</label> <input type="text" class="payInput" id="PayCity" required></br>
-                <label for="payZipCode">Zip Code</label><input type="text" class="payInput" id="payZipCode" pattern="^\d{5}" required></br>
+                <label for="cardNumber">Card Number</label><input type="text" id="cardNumber" class="payInputCard checkoutInput" pattern="^\d{16}" required></br>
+                <label for="expiration">Expiration</label> <input type="text" class="payInputCard checkoutInput" id="expiration" placeholder="mm/yy" required></br>
+                <label for="cvv">CVV</label><input type="password" id="cvv" pattern="^\d{3}" class="payInputCard checkoutInput" required></br>
+                <label for="nameOnCard">Name On Card</label> <input type="text" id="nameOnCard" class="payInputCard checkoutInput" required></br>
+                <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox" id="sameAddrAsShip" class="checkoutInput"></br>
+                <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput checkoutInput" placeholder="(XXX)XXX-XXXX" required></br>
+                <label for="shipEmail">Email Address</label><input type="text" class="payInput payInfo checkoutInput" required></br>
+                <label for="PayAddressLineOne">Address Line One</label> <input type="text" class="payInput checkoutInput" id="payAddressLineOne" required></br>
+                <label for="payAddressLineTwo">Address Line Two</label> <input type="text" class="payInput checkoutInput" id="payAddressLineTwo"></br>
+                <label for="payCity">City</label> <input type="text" class="payInput checkoutInput" id="payCity" required></br>
+                <label for="payZipCode">Zip Code</label><input type="text" class="payInput checkoutInput" id="payZipCode" pattern="^\d{5}" required></br>
                 <label for="payState">State</label>
-                <select id="payState" class="payInput" required>
+                <select id="payState" class="payInput checkoutInput" required>
                             <option value="blank"> </option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>

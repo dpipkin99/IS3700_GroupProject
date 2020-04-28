@@ -8,17 +8,17 @@ if (document.readyState == 'loading') {
 // detects if the page is ready to go
 function ready(event) {
     var testForSavedCart = sessionStorage;
-    for (var i = 0; i < testForSavedCart.length; i++) {
-        if (sessionStorage.cartContents != null) {
-            var savedCart = JSON.parse(sessionStorage.cartContents);
-            var title = savedCart.title;
-            var price = savedCart.price;
-            var quantity = savedCart.quantity;
-            for (var i = 0; i < title.length; i++) {
-                restoreSavedCart(title[i], price[i], quantity[i]);
-            }
+    //for (var i = 0; i < testForSavedCart.length; i++) {
+    if (sessionStorage.cartContents != null) {
+        var savedCart = JSON.parse(sessionStorage.cartContents);
+        var title = savedCart.title;
+        var price = savedCart.price;
+        var quantity = savedCart.quantity;
+        for (var i = 0; i < title.length; i++) {
+            restoreSavedCart(title[i], price[i], quantity[i]);
         }
     }
+    // }
 
     var removeButton = document.querySelectorAll(".buttonRemove");
     for (var i = 0; i < removeButton.length; i++) {

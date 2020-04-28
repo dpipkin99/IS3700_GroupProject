@@ -15,6 +15,9 @@ function ready(event) {
         var button = removeButton[i];
         button.addEventListener("click", removeCartButton);
     }
+    var shipInfoBox = document.querySelector("#shippingInfo");
+    shipInfoBox.addEventListener("input", activeValidationShip);
+
     var shipmentButton = document.querySelector("#confirmshipment");
     shipmentButton.addEventListener('click', validateShipInfo);
     var paymentButton = document.querySelector("#confirmPayment");
@@ -135,7 +138,7 @@ function validateShipInfo() {
         passValidation = false;
     }
 
-    if (document.querySelector("#shipPhone").value == "" || isNaN(document.querySelector("#shipPhone").value) || document.querySelector("#shipPhone").value.length != 10) {
+    if (document.querySelector("#shipPhone").value == "") {
         alert("Phone number is Invalid");
         document.querySelector("#shipPhone").style.backgroundColor = "red";
         passValidation = false;
@@ -171,9 +174,9 @@ function insertSameShipBillInfo() {
         }
         shipInfo = JSON.parse(sessionStorage.getItem("shippingInfo"));
         document.querySelector("#payPhone").value = shipInfo.Phone;
-        document.querySelector("#PayAddressLineOne").value = shipInfo.AddrLineOne;
-        document.querySelector("#PayAddressLineTwo").value = shipInfo.AddrLineTwo;
-        document.querySelector("#PayCity").value = shipInfo.City;
+        document.querySelector("#payAddressLineOne").value = shipInfo.AddrLineOne;
+        document.querySelector("#payAddressLineTwo").value = shipInfo.AddrLineTwo;
+        document.querySelector("#payCity").value = shipInfo.City;
         document.querySelector("#payZipCode").value = shipInfo.ZipCode;
         document.querySelector("#payState").value = shipInfo.state;
         document.querySelector("payEmail").value = shipInfo.email;
@@ -184,7 +187,121 @@ function insertSameShipBillInfo() {
     }
 }
 
+function activeValidationShip() {
+    var emailPattern = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ // modified from https://regexr.com/2rhq7
+    var cardNumberPattern = /^\d{16}$/;
+    var cvvPattern = /^\d{3}$/;
+    var expDatePattern = /^\d{0,1}\d{0,9}\\\d{2}$/;
+    var phonePattern = /^(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})$/; // Modified from https://regexr.com/38ohj
+
+    if (shippingInfo.display != "none") {
+        if (shipFirstName.value == "") {
+            shipFirstName.style.backgroundColor = "red";
+        } else {
+            shipFirstName.style.backgroundColor = "white";
+        }
+        if (shipLastName.value == "") {
+            shipLastName.style.backgroundColor = "red";
+        } else {
+            shipLastName.style.backgroundColor = "white";
+        }
+        if (!phonePattern.test(document.querySelector("#shipPhone").value)) {
+            shipPhone.style.backgroundColor = "red";
+        } else {
+            shipPhone.style.backgroundColor = "white";
+        }
+        if (shipAddressLineOne.value == "") {
+            shipAddressLineOne.style.backgroundColor = "red";
+        } else {
+            shipAddressLineOne.style.backgroundColor = "white";
+        }
+        if (shipAddressLineTwo.value == "") {
+            shipAddressLineTwo.style.backgroundColor = "red";
+        } else {
+            shipAddressLineTwo.style.backgroundColor = "white";
+        }
+        if (shipCity.value == "") {
+            shipCity.style.backgroundColor = "red";
+        } else {
+            shipCity.style.backgroundColor = "white";
+        }
+        if (shipZipCode.value == "") {
+            shipZipCode.style.backgroundColor = "red";
+        } else {
+            shipZipCode.style.backgroundColor = "white";
+        }
+        if (shipState.value == "Blank") {
+            shipState.style.backgroundColor = "red";
+        } else {
+            shipState.style.backgroundColor = "white";
+        }
+        if (!emailPattern.test(document.querySelector("#shipEmail").value)) {
+            shipEmail.style.backgroundColor = "red";
+        } else {
+            shipEmail.style.backgroundColor = "white";
+        }
+    } else {
+        if (payFirstName.value == "") {
+            payFirstName.style.backgroundColor = "red";
+        } else {
+            payFirstName.style.backgroundColor = "white";
+        }
+        if (payLastName.value == "") {
+            payLastName.style.backgroundColor = "red";
+        } else {
+            payLastName.style.backgroundColor = "white";
+        }
+        if (!phonePattern.test(document.querySelector("#payPhone").value)) {
+            payPhone.style.backgroundColor = "red";
+        } else {
+            payPhone.style.backgroundColor = "white";
+        }
+        if (payAddressLineOne.value == "") {
+            payAddressLineOne.style.backgroundColor = "red";
+        } else {
+            payAddressLineOne.style.backgroundColor = "white";
+        }
+        if (payAddressLineTwo.value == "") {
+            payAddressLineTwo.style.backgroundColor = "red";
+        } else {
+            payAddressLineTwo.style.backgroundColor = "white";
+        }
+        if (payCity.value == "") {
+            payCity.style.backgroundColor = "red";
+        } else {
+            payCity.style.backgroundColor = "white";
+        }
+        if (payZipCode.value == "") {
+            payZipCode.style.backgroundColor = "red";
+        } else {
+            payZipCode.style.backgroundColor = "white";
+        }
+        if (payState.value == "Blank") {
+            payState.style.backgroundColor = "red";
+        } else {
+            payState.style.backgroundColor = "white";
+        }
+        if (!emailPattern.test(document.querySelector("#payEmail").value)) {
+            payEmail.style.backgroundColor = "red";
+        } else {
+            payEmail.style.backgroundColor = "white";
+        }
+    }
+
+
+
+
+
+
+}
+
+
 function validatePayInfo() {
+    var emailPattern;
+    var cardNumberPattern;
+    var cvvPattern;
+    var expDatePattern;
+    var phonePattern = /^(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})$/;
     var passValidation = true;
     var listOfLabels = document.querySelectorAll("label");
     var labelTargets = [];
@@ -193,13 +310,14 @@ function validatePayInfo() {
     for (var i = 0; i < listOfLabels.length; i++) {
         labelTargets.push(listOfLabels[i].htmlFor);
     }
+    console.log()
 
     for (var i = 0; i < textInputs.length; i++) {
-        if (textInputs[i].value == "" || textInputs[i].value == null) {
+        if (textInputs[i].backgroundColor == "red" || textInputs[i].value == null) {
             for (var x = 0; x < labelTargets.length; x++) {
                 if (textInputs[i].id == labelTargets[x]) {
                     var id = document.querySelector("#" + labelTargets[x]);
-                    alert(listOfLabels[x].innerText + " cannot be empty.");
+                    alert(listOfLabels[x].innerText + " is invalid");
                     id.style.backgroundColor = "red";
                     passValidation = false;
                 }
@@ -207,39 +325,3 @@ function validatePayInfo() {
         }
 
     }
-    if (document.querySelector("#expiration").value == "") {
-        alert("Expiration cannot be blank");
-        id.style.backgroundColor = "red";
-        passValidation = false;
-    }
-    if (document.querySelector("#cardNumber").value == "" || isNaN(document.querySelector("#cardNumber").value) || document.querySelector("#cardNumber").value.length != 16) {
-        alert("CVV is Invalid");
-        id.style.backgroundColor = "red";
-        passValidation = false;
-    }
-    if (document.querySelector("#cvv").value == "" || isNaN(document.querySelector("#cvv").value) || document.querySelector("#cvv").value.length != 3) {
-        alert("CVV is Invalid");
-        id.style.backgroundColor = "red";
-        passValidation = false;
-    }
-    if (document.querySelector("#payState").value == "blank") {
-        alert("State cannot be left blank.");
-        id.style.backgroundColor = "red";
-        passValidation = false;
-    }
-    if (document.querySelector("#payZipCode").value == "" || isNaN(document.querySelector("#payZipCode").value) || document.querySelector("#payZipCode").value.length != 5) {
-        alert("ZipCode is Invalid");
-        document.querySelector("#payZipCode").style.backgroundColor = "red";
-        passValidation = false;
-    }
-    if (document.querySelector("#payPhone").value == "" || isNaN(document.querySelector("#payPhone").value) || document.querySelector("#payPhone").value.length != 10) {
-        alert("Phone number is Invalid");
-        id.style.backgroundColor = "red";
-        passValidation = false;
-    }
-
-    if (passValidation) {
-        window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-    }
-
-}
