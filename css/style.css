@@ -441,6 +441,10 @@ input[type=submit]:hover {
     text-align: center;
 }
 
+.location {
+    color: yellow;
+    text-align: center;
+}
 
 /*footer*/
 
