@@ -321,6 +321,7 @@ p {
 /* Contact Us Page */
 
 input[type=text],
+input[type=password],
 select,
 textarea {
     width: 100%;
@@ -407,14 +408,6 @@ input[type=submit]:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.payInput:valid {
-    background-color: lawnGreen;
-}
-
-.payInput:invalid {
-    background-color: crimson;
 }
 
 

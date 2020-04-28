@@ -11,45 +11,46 @@
     <title>Our Props to You Gallery</title>
     <meta charset="UTF-8">
     <meta name="viewport " content="width=device-width, initial-scale=1.0 ">
-  </head>  
- <body class="grid-container">
-  <header class="item1">
-        
-    <nav>
-        <div class="logo">
-            <h4>Our Props To You</h4>
-        </div>
+</head>
 
-        <ul class="nav-links">
-            <li>
-              <a href="../index.html">HOME</a>
-            </li>
+<body class="grid-container">
+    <header class="item1">
 
-            <li>
-              <a href="about.html">ABOUT US</a>
-            </li>
+        <nav>
+            <div class="logo">
+                <h4>Our Props To You</h4>
+            </div>
 
-            <li>
-              <a href="gallery.html">GALLERY</a>
-            </li>
-                
-            <li>
-              <a href="contact.html">CONTACT</a>
-            </li>
+            <ul class="nav-links">
+                <li>
+                    <a href="../index.html">HOME</a>
+                </li>
 
-            <li>
-              <a href="shop.html">SHOP</a>
-            </li>
+                <li>
+                    <a href="about.html">ABOUT US</a>
+                </li>
 
-        </ul>
-        <div class="burger">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
+                <li>
+                    <a href="gallery.html">GALLERY</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">CONTACT</a>
+                </li>
+
+                <li>
+                    <a href="shop.html">SHOP</a>
+                </li>
+
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
 
 
-    </nav>
+        </nav>
     </header>
 
     </header>
@@ -72,17 +73,15 @@
             <fieldset id="shippingInfo">
                 <label for="shipFirstName">First Name</label> <input type="text" id="shipFirstName" class="shipInput shipInfo checkoutInput" required></br>
                 <label for="shipLastName">Last Name</label> <input type="text" id="shipLastName" class="shipInput shipInfo checkoutInput" required></br>
-                <label for="shipPhone">Phone Number</label><input type="text" id="shipPhone" class="shipInputNum shipInfo checkoutInput" placeholder="(XXX)XXX-XXXX" required></br>
-
-                <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineOne" required></br>
+                <label for="shipPhone">Phone Number</label><input type="text" id="shipPhone" class="shipInput shipInfo checkoutInput" placeholder="(XXX)XXX-XXXX" required></br>
                 <label for="shipEmail">Email Address</label><input type="text" class="shipInput shipInfo checkoutInput" id="shipEmail" required></br>
-
+                <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineOne" required></br>
                 <label for="shipAddressLineTwo">Address Line Two</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineTwo"></br>
                 <label for="shipCity">City</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipCity" required></br>
-                <label for="shipZipCode">Zip Code</label><input type="text" class="shipInputNum checkoutInput" id="shipZipCode" pattern="^\d{5}" required></br>
+                <label for="shipZipCode">Zip Code</label><input type="text" class="shipInput checkoutInput" id="shipZipCode" required></br>
                 <label for="shipState">State</label>
-                <select id="shipState" class="shipInputState shipInfo checkoutInput" required>
-                            <option value="blank"> </option>
+                <select id="shipState" class="shipInput shipInfo checkoutInput" required>
+                            <option value=""> </option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -140,11 +139,11 @@
             <fieldset id="paymentInfo" hidden>
                 <label for="cardNumber">Card Number</label><input type="text" id="cardNumber" class="payInputCard checkoutInput" pattern="^\d{16}" required></br>
                 <label for="expiration">Expiration</label> <input type="text" class="payInputCard checkoutInput" id="expiration" placeholder="mm/yy" required></br>
-                <label for="cvv">CVV</label><input type="password" id="cvv" pattern="^\d{3}" class="payInputCard checkoutInput" required></br>
-                <label for="nameOnCard">Name On Card</label> <input type="text" id="nameOnCard" class="payInputCard checkoutInput" required></br>
+                <label for="cvv">CVV</label><input type="password" id="cvv" class="payInputCard checkoutInput" required></br>
+                <label for="cardHolderName">Name On Card</label> <input type="text" id="cardHolderName" class="payInputCard checkoutInput" required></br>
                 <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox" id="sameAddrAsShip" class="checkoutInput"></br>
                 <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput checkoutInput" placeholder="(XXX)XXX-XXXX" required></br>
-                <label for="shipEmail">Email Address</label><input type="text" class="payInput payInfo checkoutInput" required></br>
+                <label for="payEmail">Email Address</label><input id="payEmail" type="text" class="payInput payInfo checkoutInput" required></br>
                 <label for="PayAddressLineOne">Address Line One</label> <input type="text" class="payInput checkoutInput" id="payAddressLineOne" required></br>
                 <label for="payAddressLineTwo">Address Line Two</label> <input type="text" class="payInput checkoutInput" id="payAddressLineTwo"></br>
                 <label for="payCity">City</label> <input type="text" class="payInput checkoutInput" id="payCity" required></br>

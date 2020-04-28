@@ -15,8 +15,9 @@ function ready(event) {
         var button = removeButton[i];
         button.addEventListener("click", removeCartButton);
     }
-    var shipInfoBox = document.querySelector("#shippingInfo");
+    var shipInfoBox = document.querySelector(".informationFields");
     shipInfoBox.addEventListener("input", activeValidationShip);
+
 
     var shipmentButton = document.querySelector("#confirmshipment");
     shipmentButton.addEventListener('click', validateShipInfo);
@@ -120,34 +121,18 @@ function validateShipInfo() {
     }
 
     for (var i = 0; i < textInputs.length; i++) {
-        if (textInputs[i].value == "" || textInputs[i].value == null) {
+        if ((textInputs[i].backgroundColor == "red" || (textInputs[i].value == "" && textInputs[i].id != "shipAddressLineTwo"))) {
             for (var x = 0; x < labelTargets.length; x++) {
-                if (textInputs[i].id == labelTargets[x] && textInputs[i].id != "shipAddressLineTwo") {
+                if (textInputs[i].id == labelTargets[x]) {
                     var id = document.querySelector("#" + labelTargets[x]);
-                    alert(listOfLabels[x].innerText + " cannot be empty.");
+                    alert(listOfLabels[x].innerText + " is invalid");
                     id.style.backgroundColor = "red";
                     passValidation = false;
                 }
             }
         }
-
-    }
-    if (document.querySelector("#shipState").value == "blank") {
-        alert("State cannot be left blank.");
-        document.querySelector("#shipState").style.backgroundColor = "red";
-        passValidation = false;
     }
 
-    if (document.querySelector("#shipPhone").value == "") {
-        alert("Phone number is Invalid");
-        document.querySelector("#shipPhone").style.backgroundColor = "red";
-        passValidation = false;
-    }
-    if (document.querySelector("#shipZipCode").value == "" || isNaN(document.querySelector("#shipZipCode").value) || document.querySelector("#shipZipCode").value.length != 5) {
-        alert("ZipCode is Invalid");
-        document.querySelector("#shipZipCode").style.backgroundColor = "red";
-        passValidation = false;
-    }
     if (passValidation) {
         var shippingInfo = {
             Address: [document.querySelector("#shipFirstName").value],
@@ -158,11 +143,38 @@ function validateShipInfo() {
             City: [document.querySelector("#shipCity").value],
             ZipCode: [document.querySelector("#shipZipCode").value],
             state: [document.querySelector("#shipState").value],
-            email: [document.querySelector("#shipEmail".value)]
+            email: [document.querySelector("#shipEmail").value]
         }
         sessionStorage.setItem("shippingInfo", JSON.stringify(shippingInfo));
         document.querySelector("#shippingInfo").style.display = "none";
         document.querySelector("#paymentInfo").style.display = "block";
+    }
+}
+
+function validatePayInfo() {
+    var passValidation = true;
+    var listOfLabels = document.querySelectorAll("label");
+    var labelTargets = [];
+    var inputs = [];
+    var textInputs = document.querySelectorAll(".payInput");
+    for (var i = 0; i < listOfLabels.length; i++) {
+        labelTargets.push(listOfLabels[i].htmlFor);
+    }
+
+    for (var i = 0; i < textInputs.length; i++) {
+        if (textInputs[i].backgroundColor == "red" || textInputs[i].value == null) {
+            for (var x = 0; x < labelTargets.length; x++) {
+                if (textInputs[i].id == labelTargets[x]) {
+                    var id = document.querySelector("#" + labelTargets[x]);
+                    alert(listOfLabels[x].innerText + " is invalid");
+                    id.style.backgroundColor = "red";
+                    passValidation = false;
+                }
+            }
+        }
+    }
+    if (passValidation) {
+        window.location.replace("confirmation.html")
     }
 }
 
@@ -179,7 +191,7 @@ function insertSameShipBillInfo() {
         document.querySelector("#payCity").value = shipInfo.City;
         document.querySelector("#payZipCode").value = shipInfo.ZipCode;
         document.querySelector("#payState").value = shipInfo.state;
-        document.querySelector("payEmail").value = shipInfo.email;
+        document.querySelector("#payEmail").value = shipInfo.email;
     } else if (document.querySelector("#sameAddrAsShip").checked == false) {
         for (var i = 0; i < infoBlock.length; i++) {
             infoBlock[i].disabled = false;
@@ -187,106 +199,118 @@ function insertSameShipBillInfo() {
     }
 }
 
+
 function activeValidationShip() {
     var emailPattern = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ // modified from https://regexr.com/2rhq7
     var cardNumberPattern = /^\d{16}$/;
     var cvvPattern = /^\d{3}$/;
-    var expDatePattern = /^\d{0,1}\d{0,9}\\\d{2}$/;
+    var expDatePattern = /^[0-1][0-9]\/\d{2}$/;
     var phonePattern = /^(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})$/; // Modified from https://regexr.com/38ohj
+    var zipPattern = /^\d{5}$/
+        // butt load of if else statements
+        {
+            if (shipFirstName.value == "") {
+                shipFirstName.style.backgroundColor = "red";
+            } else {
+                shipFirstName.style.backgroundColor = "white";
+            }
+            if (shipLastName.value == "") {
+                shipLastName.style.backgroundColor = "red";
+            } else {
+                shipLastName.style.backgroundColor = "white";
+            }
+            if (!phonePattern.test(document.querySelector("#shipPhone").value)) {
+                shipPhone.style.backgroundColor = "red";
+            } else {
+                shipPhone.style.backgroundColor = "white";
+            }
+            if (shipAddressLineOne.value == "") {
+                shipAddressLineOne.style.backgroundColor = "red";
+            } else {
+                shipAddressLineOne.style.backgroundColor = "white";
+            }
+            if (shipAddressLineTwo.value == "") {
+                shipAddressLineTwo.style.backgroundColor = "white";
+            } else {
+                shipAddressLineTwo.style.backgroundColor = "white";
+            }
+            if (shipCity.value == "") {
+                shipCity.style.backgroundColor = "red";
+            } else {
+                shipCity.style.backgroundColor = "white";
+            }
+            if (!zipPattern.test(document.querySelector("#shipZipCode").value)) {
+                shipZipCode.style.backgroundColor = "red";
+            } else {
+                shipZipCode.style.backgroundColor = "white";
+            }
+            if (shipState.value == "blank") {
+                shipState.style.backgroundColor = "red";
+            } else {
+                shipState.style.backgroundColor = "white";
+            }
+            if (!emailPattern.test(document.querySelector("#shipEmail").value)) {
+                shipEmail.style.backgroundColor = "red";
+            } else {
+                shipEmail.style.backgroundColor = "white";
+            }
 
-    if (shippingInfo.display != "none") {
-        if (shipFirstName.value == "") {
-            shipFirstName.style.backgroundColor = "red";
-        } else {
-            shipFirstName.style.backgroundColor = "white";
+            if (!cardNumberPattern.test(document.querySelector("#cardNumber").value)) {
+                cardNumber.style.backgroundColor = "red";
+            } else {
+                cardNumber.style.backgroundColor = "white";
+            }
+            if (!expDatePattern.test(document.querySelector("#expiration").value)) {
+                expiration.style.backgroundColor = "red";
+            } else {
+                expiration.style.backgroundColor = "white";
+            }
+            if (!cvvPattern.test(document.querySelector("#cvv").value)) {
+                cvv.style.backgroundColor = "red";
+            } else {
+                cvv.style.backgroundColor = "white";
+            }
+            if (cardHolderName.value == "") {
+                cardHolderName.style.backgroundColor = "red";
+            } else {
+                cardHolderName.style.backgroundColor = "white";
+            }
+            if (!phonePattern.test(document.querySelector("#payPhone").value)) {
+                payPhone.style.backgroundColor = "red";
+            } else {
+                payPhone.style.backgroundColor = "white";
+            }
+            if (payAddressLineOne.value == "") {
+                payAddressLineOne.style.backgroundColor = "red";
+            } else {
+                payAddressLineOne.style.backgroundColor = "white";
+            }
+            if (payAddressLineTwo.value == "") {
+                payAddressLineTwo.style.backgroundColor = "white";
+            } else {
+                payAddressLineTwo.style.backgroundColor = "white";
+            }
+            if (payCity.value == "") {
+                payCity.style.backgroundColor = "red";
+            } else {
+                payCity.style.backgroundColor = "white";
+            }
+            if (payZipCode.value == "") {
+                payZipCode.style.backgroundColor = "red";
+            } else {
+                payZipCode.style.backgroundColor = "white";
+            }
+            if (payState.value == "blank") {
+                payState.style.backgroundColor = "red";
+            } else {
+                payState.style.backgroundColor = "white";
+            }
+            if (!emailPattern.test(document.querySelector("#payEmail").value)) {
+                payEmail.style.backgroundColor = "red";
+            } else {
+                payEmail.style.backgroundColor = "white";
+            }
         }
-        if (shipLastName.value == "") {
-            shipLastName.style.backgroundColor = "red";
-        } else {
-            shipLastName.style.backgroundColor = "white";
-        }
-        if (!phonePattern.test(document.querySelector("#shipPhone").value)) {
-            shipPhone.style.backgroundColor = "red";
-        } else {
-            shipPhone.style.backgroundColor = "white";
-        }
-        if (shipAddressLineOne.value == "") {
-            shipAddressLineOne.style.backgroundColor = "red";
-        } else {
-            shipAddressLineOne.style.backgroundColor = "white";
-        }
-        if (shipAddressLineTwo.value == "") {
-            shipAddressLineTwo.style.backgroundColor = "red";
-        } else {
-            shipAddressLineTwo.style.backgroundColor = "white";
-        }
-        if (shipCity.value == "") {
-            shipCity.style.backgroundColor = "red";
-        } else {
-            shipCity.style.backgroundColor = "white";
-        }
-        if (shipZipCode.value == "") {
-            shipZipCode.style.backgroundColor = "red";
-        } else {
-            shipZipCode.style.backgroundColor = "white";
-        }
-        if (shipState.value == "Blank") {
-            shipState.style.backgroundColor = "red";
-        } else {
-            shipState.style.backgroundColor = "white";
-        }
-        if (!emailPattern.test(document.querySelector("#shipEmail").value)) {
-            shipEmail.style.backgroundColor = "red";
-        } else {
-            shipEmail.style.backgroundColor = "white";
-        }
-    } else {
-        if (payFirstName.value == "") {
-            payFirstName.style.backgroundColor = "red";
-        } else {
-            payFirstName.style.backgroundColor = "white";
-        }
-        if (payLastName.value == "") {
-            payLastName.style.backgroundColor = "red";
-        } else {
-            payLastName.style.backgroundColor = "white";
-        }
-        if (!phonePattern.test(document.querySelector("#payPhone").value)) {
-            payPhone.style.backgroundColor = "red";
-        } else {
-            payPhone.style.backgroundColor = "white";
-        }
-        if (payAddressLineOne.value == "") {
-            payAddressLineOne.style.backgroundColor = "red";
-        } else {
-            payAddressLineOne.style.backgroundColor = "white";
-        }
-        if (payAddressLineTwo.value == "") {
-            payAddressLineTwo.style.backgroundColor = "red";
-        } else {
-            payAddressLineTwo.style.backgroundColor = "white";
-        }
-        if (payCity.value == "") {
-            payCity.style.backgroundColor = "red";
-        } else {
-            payCity.style.backgroundColor = "white";
-        }
-        if (payZipCode.value == "") {
-            payZipCode.style.backgroundColor = "red";
-        } else {
-            payZipCode.style.backgroundColor = "white";
-        }
-        if (payState.value == "Blank") {
-            payState.style.backgroundColor = "red";
-        } else {
-            payState.style.backgroundColor = "white";
-        }
-        if (!emailPattern.test(document.querySelector("#payEmail").value)) {
-            payEmail.style.backgroundColor = "red";
-        } else {
-            payEmail.style.backgroundColor = "white";
-        }
-    }
 
 
 
@@ -294,34 +318,3 @@ function activeValidationShip() {
 
 
 }
-
-
-function validatePayInfo() {
-    var emailPattern;
-    var cardNumberPattern;
-    var cvvPattern;
-    var expDatePattern;
-    var phonePattern = /^(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})$/;
-    var passValidation = true;
-    var listOfLabels = document.querySelectorAll("label");
-    var labelTargets = [];
-    var inputs = [];
-    var textInputs = document.querySelectorAll(".payInput");
-    for (var i = 0; i < listOfLabels.length; i++) {
-        labelTargets.push(listOfLabels[i].htmlFor);
-    }
-    console.log()
-
-    for (var i = 0; i < textInputs.length; i++) {
-        if (textInputs[i].backgroundColor == "red" || textInputs[i].value == null) {
-            for (var x = 0; x < labelTargets.length; x++) {
-                if (textInputs[i].id == labelTargets[x]) {
-                    var id = document.querySelector("#" + labelTargets[x]);
-                    alert(listOfLabels[x].innerText + " is invalid");
-                    id.style.backgroundColor = "red";
-                    passValidation = false;
-                }
-            }
-        }
-
-    }
