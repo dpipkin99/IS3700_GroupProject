@@ -495,10 +495,12 @@ input[type=submit]:hover {
 .footerItem1 {
     display: block;
     width: 100%;
-    background-color: black;
+    background-color:darkgrey;
     padding: 5px;
     text-align: center;
     font: Georgia;
     font-size: medium;
-    color: white;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
