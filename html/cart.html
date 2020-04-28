@@ -45,8 +45,12 @@
             <fieldset id="shippingInfo">
                 <label for="shipFirstName">First Name</label> <input type="text" id="shipFirstName" class="shipInput shipInfo" required></br>
                 <label for="shipLastName">Last Name</label> <input type="text" id="shipLastName" class="shipInput shipInfo" required></br>
-                <label for="shipPhone">Phone Number</label><input type="tel" id="shipPhone" class="shipInputNum shipInfo" placeholder="xxxxxxxxxx" required></br>
+                <label for="shipPhone">Phone Number</label><input type="tel" id="shipPhone" class="shipInputNum shipInfo" placeholder="(XXX)XXX-XXXX" pattern="(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})" required></br>
+                <!--Regular Expression taken from: https://regexr.com/38ohj -->
                 <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo" id="shipAddressLineOne" required></br>
+                <label for="shipEmail">Email Address</label><input type="email" class="shipInput shipInfo" id="shipEmail" pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g"
+                    required></br>
+                <!-- Regular Expression taken from https://regexr.com/2rhq7-->
                 <label for="shipAddressLineTwo">Address Line Two</label> <input type="text" class="shipInput shipInfo" id="shipAddressLineTwo"></br>
                 <label for="shipCity">City</label> <input type="text" class="shipInput shipInfo" id="shipCity" required></br>
                 <label for="shipZipCode">Zip Code</label><input type="text" class="shipInputNum" id="shipZipCode" pattern="^\d{5}" required></br>
@@ -113,7 +117,9 @@
                 <label for="cvv">CVV</label><input type="password" id="cvv" pattern="^\d{3}" class="payInputCard" required></br>
                 <label for="NameOnCard">Name On Card</label> <input type="text" id="NameOnCard" class="payInputCard" required></br>
                 <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox" id="sameAddrAsShip"></br>
-                <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput" pattern="^\d{10}" required></br>
+                <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput" placeholder="(XXX)XXX-XXXX" pattern="(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})" required></br>
+                <label for="shipEmail">Email Address</label><input type="email" class="shipInput shipInfo" id="shipEmail" pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g"
+                    required></br>
                 <label for="PayAddressLineOne">Address Line One</label> <input type="text" class="payInput" id="PayAddressLineOne" required></br>
                 <label for="PayAddressLineTwo">Address Line Two</label> <input type="text" class="payInput" id="PayAddressLineTwo"></br>
                 <label for="PayCity">City</label> <input type="text" class="payInput" id="PayCity" required></br>

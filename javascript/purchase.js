@@ -146,7 +146,17 @@ function validateShipInfo() {
         passValidation = false;
     }
     if (passValidation) {
-        var shippingInfo = { Address: [document.querySelector("#shipFirstName").value], LastName: [document.querySelector("#shipLastName").value], Phone: [document.querySelector("#shipPhone").value], AddrLineOne: [document.querySelector("#shipAddressLineOne").value], AddrLineTwo: [document.querySelector("#shipAddressLineTwo").value], City: [document.querySelector("#shipCity").value], ZipCode: [document.querySelector("#shipZipCode").value], state: [document.querySelector("#shipState").value] }
+        var shippingInfo = {
+            Address: [document.querySelector("#shipFirstName").value],
+            LastName: [document.querySelector("#shipLastName").value],
+            Phone: [document.querySelector("#shipPhone").value],
+            AddrLineOne: [document.querySelector("#shipAddressLineOne").value],
+            AddrLineTwo: [document.querySelector("#shipAddressLineTwo").value],
+            City: [document.querySelector("#shipCity").value],
+            ZipCode: [document.querySelector("#shipZipCode").value],
+            state: [document.querySelector("#shipState").value],
+            email: [document.querySelector("#shipEmail".value)]
+        }
         sessionStorage.setItem("shippingInfo", JSON.stringify(shippingInfo));
         document.querySelector("#shippingInfo").style.display = "none";
         document.querySelector("#paymentInfo").style.display = "block";
@@ -166,6 +176,7 @@ function insertSameShipBillInfo() {
         document.querySelector("#PayCity").value = shipInfo.City;
         document.querySelector("#payZipCode").value = shipInfo.ZipCode;
         document.querySelector("#payState").value = shipInfo.state;
+        document.querySelector("payEmail").value = shipInfo.email;
     } else if (document.querySelector("#sameAddrAsShip").checked == false) {
         for (var i = 0; i < infoBlock.length; i++) {
             infoBlock[i].disabled = false;
