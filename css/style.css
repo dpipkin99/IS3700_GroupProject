@@ -497,10 +497,10 @@ input[type=submit]:hover {
     width: 100%;
     background-color:darkgrey;
     padding: 5px;
-    text-align: center;
     font: Georgia;
     font-size: medium;
     color: black;
     text-transform: uppercase;
     letter-spacing: 3px;
+    text-align: left;
 }
