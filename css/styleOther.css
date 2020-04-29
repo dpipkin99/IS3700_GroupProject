@@ -1,0 +1,574 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/theater.jpg');
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', sans-serif;
+    font-size: 17px;
+    color: #926239;
+    line-height: 1.6;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    font-family: 'Georgia', sans-serif;
+}
+
+.logo {
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 18px;
+}
+
+
+/* Nav Links */
+
+.nav-links {
+    display: flex;
+    grid-auto-rows: minmax(min-content, 100px);
+    justify-content: space-around;
+    width: 30%;
+    margin: 0;
+    padding: auto;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.nav-links li:hover {
+    background-color: #000;
+    color: #000;
+}
+
+.nav-links li a:hover {
+    border: 1px solid white;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+
+/* Hamburger style menu */
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3 ease;
+}
+
+
+/*Media Queries */
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    body {
+        overflow-x: hidden;
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    .burger {
+        display: block;
+    }
+    #shopContainer {
+        display: grid;
+        grid-template-columns: 'itemsForSaleContainer cartContainer';
+        grid-auto-flow: row;
+        background-color: rgba(0, 0, 0, 0.452);
+    }
+    #itemsForSaleContainer {
+        display: grid;
+        grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
+        grid-column: itemsForSaleContainer;
+        border-right: 1px solid #fff;
+        position: relative;
+    }
+    #cartContainer {
+        grid-column: cartContainer;
+        position: relative;
+    }
+    .footerItem1 {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: black;
+        background-color: palegoldenrod;
+        font: Georgia;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+}
+
+.gallery {
+    width: auto;
+    height: auto;
+}
+
+.nav-active {
+    transform: translateX(0%);
+    transition: transform 0.5s ease-in;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+/* Grid design */
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 'header' 'main' 'footer';
+}
+
+.item1 {
+    grid-area: header;
+}
+
+.item3 {
+    grid-area: main;
+    height: 75vh;
+    margin: auto;
+    justify-content: center;
+}
+
+.mainGrid {
+    grid-area: main;
+    height: 70vh;
+}
+
+.item5 {
+    grid-area: footer;
+    grid-template-areas: 'copyright navigation contactUs';
+    height: 15vh;
+}
+
+.footCopyright {
+    grid-area: copyright;
+}
+
+.item3 h1 {
+    padding: auto;
+    margin-top: 75px;
+}
+
+.title {
+    position: absolute;
+    width: 1200px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+h1 {
+    color: white;
+    font-size: 45px;
+    text-align: center;
+    font-family: "Georgia", sans-serif;
+}
+
+footer {
+    display: grid;
+}
+
+p {
+    padding: 7px;
+    color: white;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+
+/* Button CSS */
+
+.buttonDefault {
+    font-size: 0.70em;
+    border-radius: 8px;
+    color: black;
+}
+
+.buttonAdd {
+    background-color: grey;
+}
+
+.buttonRemove {
+    background-color: red;
+}
+
+
+/* css for shop*/
+
+#shopContainer {
+    display: grid;
+    grid-template-areas: 'itemsForSaleContainer cartContainer';
+    background-color: rgba(0, 0, 0, 0.452);
+}
+
+#itemsForSaleContainer {
+    display: grid;
+    grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
+    grid-area: itemsForSaleContainer;
+    border-right: 1px solid #fff;
+}
+
+
+/* Shop CSS */
+
+.itemTitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    color: black;
+    background-color: palegoldenrod;
+}
+
+.itemPrice {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
+    color: palegoldenrod;
+    background-color: black;
+}
+
+.cartRow {
+    display: flex;
+}
+
+.cartItem {
+    width: 45%;
+}
+
+.cartQuantity {
+    width: 35%;
+}
+
+.cartPrice {
+    width: 20%;
+}
+
+.cartHeader {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+    padding: 0px 40px;
+}
+
+.cartColumn {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/*Gallery Css*/
+
+.gallery {
+    margin: 10px 50px;
+}
+
+.gallery img {
+    transition: 1s;
+    padding: 15px;
+    width: 200px;
+}
+
+.gallery img:hover {
+    filter: grayscale(100%);
+    transform: scale(1.1);
+}
+
+
+/* Checkout design */
+
+.checkout {
+    display: grid;
+    grid-template-areas: 'information checkout';
+    background-color: rgba(0, 0, 0, 0.452);
+}
+
+#finalCartContainer {
+    grid-area: checkout;
+}
+
+#cartContainer {
+    color: black;
+    background-color: palegoldenrod;
+}
+
+.informationFields {
+    grid-area: information;
+}
+
+.confirmShippin {
+    margin: auto;
+    align-content: center;
+}
+
+
+/* Contact Us Page */
+
+.contact-section {
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+
+input[type=submit] {
+    background-color: green;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: black;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: palegoldenrod;
+    padding: 20px;
+}
+
+.fname {
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.lname {
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.email {
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.request {
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    margin: auto auto;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0);
+}
+
+.modaContent {
+    background-color: #000;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+.contactinfo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: 5px;
+    color: palegoldenrod;
+    background-color: black;
+    font-size: xx-large;
+}
+
+.phone {
+    outline-color: palegoldenrod;
+    text-align: center;
+    font: Georgia;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    outline-style: dotted;
+}
+
+.contactemail {
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+    text-align: center;
+    font: Georgia;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.names {
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+    text-align: center;
+    font: Georgia;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* home page */
+
+.homeinfo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+.OPTY {
+    color: palegoldenrod;
+    background-color: black;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+}
+
+.info {
+    color: black;
+}
+
+
+/* about page */
+
+.about-section {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    align-content: center;
+}
+
+.aboutus {
+    outline-style: dotted;
+    outline-color: palegoldenrod;
+}
+
+.story {
+    color: palegoldenrod;
+    text-align: center;
+    background-color: black;
+}
+
+.services {
+    color: palegoldenrod;
+    text-align: center;
+    background-color: black;
+}
+
+.location {
+    color: palegoldenrod;
+    text-align: center;
+    background-color: black;
+}
+
+.map {
+    text-align: center;
+}
+
+
+/*footer*/
+
+.footerItem1 {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    background-color: palegoldenrod;
+    font: Georgia;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+}
