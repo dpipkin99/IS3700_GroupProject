@@ -162,7 +162,7 @@ function validatePayInfo() {
     }
 
     for (var i = 0; i < textInputs.length; i++) {
-        if (textInputs[i].backgroundColor == "red" || textInputs[i].value == "") {
+        if (textInputs[i].backgroundColor == "red" || (textInputs[i].value == "" && textInputs[i].value != "shipAddressLineTwo")) {
             for (var x = 0; x < labelTargets.length; x++) {
                 if (textInputs[i].id == labelTargets[x]) {
                     var id = document.querySelector("#" + labelTargets[x]);
