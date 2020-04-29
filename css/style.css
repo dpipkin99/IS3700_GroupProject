@@ -343,6 +343,8 @@ p {
     grid-area: information;
     overflow: scroll;
     height: 85vh;
+    color: palegoldenrod;
+    background-color: black;
 }
 
 .confirmShippin {
