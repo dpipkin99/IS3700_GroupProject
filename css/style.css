@@ -91,7 +91,7 @@ nav {
     }
 }
 
-@media screen and (max-width: 812px) {
+@media screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
     }
@@ -114,20 +114,38 @@ nav {
         display: block;
     }
     #shopContainer {
-        display: grid;
-        grid-template-rows: 'itemsForSaleContainer cartContainer';
+        display: flex;
+        flex-direction: column;
         background-color: rgba(0, 0, 0, 0.452);
     }
     #itemsForSaleContainer {
-        display: grid;
-        grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
-        grid-area: itemsForSaleContainer;
+        display:flex;
+        flex-direction: column;
         border-right: 1px solid #fff;
     }
+   
     #cartContainer {
         grid-area: cartContainer;
+
     }
+    .footerItem1 {
+        position: static;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: black;
+        background-color: palegoldenrod;
+        font: Georgia;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+       
+
+    
 }
+
+
 
 .gallery {
     width: auto;
@@ -239,13 +257,12 @@ p {
 
 #shopContainer {
     display: grid;
-    grid-template-areas: 'itemsForSaleContainer cartContainer';
+    grid-template-areas: 'itemsForSaleContainer' 'cartContainer';
     background-color: rgba(0, 0, 0, 0.452);
 }
 
 #itemsForSaleContainer {
     display: grid;
-    grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
     grid-area: itemsForSaleContainer;
     border-right: 1px solid #fff;
 }
@@ -320,7 +337,7 @@ p {
 /* Checkout design */
 
 .checkout {
-    display: grid;
+    display: flex;
     grid-template-areas: 'information checkout';
     background-color: rgba(0, 0, 0, 0.452);
 }
