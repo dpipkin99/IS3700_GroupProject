@@ -91,7 +91,7 @@ nav {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 812px) {
     body {
         overflow-x: hidden;
     }
@@ -114,22 +114,24 @@ nav {
         display: block;
     }
     #shopContainer {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 'itemsForSaleContainer cartContainer';
+        grid-auto-flow: row;
         background-color: rgba(0, 0, 0, 0.452);
     }
     #itemsForSaleContainer {
-        display:flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
+        grid-column: itemsForSaleContainer;
         border-right: 1px solid #fff;
+        position: relative;
     }
-   
     #cartContainer {
-        grid-area: cartContainer;
-
+        grid-column: cartContainer;
+        position: relative;
     }
     .footerItem1 {
-        position: static;
+        position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
@@ -140,12 +142,7 @@ nav {
         letter-spacing: 3px;
         text-align: center;
     }
-       
-
-    
 }
-
-
 
 .gallery {
     width: auto;
@@ -257,12 +254,13 @@ p {
 
 #shopContainer {
     display: grid;
-    grid-template-areas: 'itemsForSaleContainer' 'cartContainer';
+    grid-template-areas: 'itemsForSaleContainer cartContainer';
     background-color: rgba(0, 0, 0, 0.452);
 }
 
 #itemsForSaleContainer {
     display: grid;
+    grid-template-areas: 'forSale1 forSale2 forSale3' 'forSale4 forSale5 forSale6';
     grid-area: itemsForSaleContainer;
     border-right: 1px solid #fff;
 }
@@ -337,7 +335,7 @@ p {
 /* Checkout design */
 
 .checkout {
-    display: flex;
+    display: grid;
     grid-template-areas: 'information checkout';
     background-color: rgba(0, 0, 0, 0.452);
 }
@@ -351,24 +349,8 @@ p {
     background-color: palegoldenrod;
 }
 
-.cartname {
-    text-align: center;
-    color: palegoldenrod;
-    background-color: black;
-    letter-spacing: 5px;
-}
-
-.confirmation {
-    text-align: center;
-    color: white;
-}
-
 .informationFields {
     grid-area: information;
-    overflow: scroll;
-    height: 85vh;
-    color: palegoldenrod;
-    background-color: black;
 }
 
 .confirmShippin {
