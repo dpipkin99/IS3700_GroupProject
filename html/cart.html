@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../javascript/purchase.js" async></script>
     <script src="../javascript/app.js" async></script>
     <title>Our Props to You Gallery</title>
-    <meta charset="UTF-8">
     <meta name="viewport " content="width=device-width, initial-scale=1.0 ">
 </head>
 
@@ -52,8 +51,6 @@
 
         </nav>
     </header>
-
-    </header>
     <section class="checkout">
         <section id="cartContainer">
             <h2>CART</h2>
@@ -71,17 +68,17 @@
         </section>
         <div class="informationFields">
             <fieldset id="shippingInfo">
-                <label for="shipFirstName">First Name</label> <input type="text" id="shipFirstName" class="shipInput shipInfo checkoutInput" required></br>
-                <label for="shipLastName">Last Name</label> <input type="text" id="shipLastName" class="shipInput shipInfo checkoutInput" required></br>
-                <label for="shipPhone">Phone Number</label><input type="text" id="shipPhone" class="shipInput shipInfo checkoutInput" placeholder="(XXX)XXX-XXXX" required></br>
-                <label for="shipEmail">Email Address</label><input type="text" class="shipInput shipInfo checkoutInput" id="shipEmail" required></br>
-                <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineOne" required></br>
-                <label for="shipAddressLineTwo">Address Line Two</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineTwo"></br>
-                <label for="shipCity">City</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipCity" required></br>
-                <label for="shipZipCode">Zip Code</label><input type="text" class="shipInput checkoutInput" id="shipZipCode" required></br>
+                <label for="shipFirstName">First Name</label> <input type="text" id="shipFirstName" class="shipInput shipInfo checkoutInput" required><br>
+                <label for="shipLastName">Last Name</label> <input type="text" id="shipLastName" class="shipInput shipInfo checkoutInput" required><br>
+                <label for="shipPhone">Phone Number</label><input type="text" id="shipPhone" class="shipInput shipInfo checkoutInput" placeholder="(XXX)XXX-XXXX" required><br>
+                <label for="shipEmail">Email Address</label><input type="text" class="shipInput shipInfo checkoutInput" id="shipEmail" required><br>
+                <label for="shipAddressLineOne">Address Line One</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineOne" required><br>
+                <label for="shipAddressLineTwo">Address Line Two</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipAddressLineTwo"><br>
+                <label for="shipCity">City</label> <input type="text" class="shipInput shipInfo checkoutInput" id="shipCity" required><br>
+                <label for="shipZipCode">Zip Code</label><input type="text" class="shipInput checkoutInput" id="shipZipCode" required><br>
                 <label for="shipState">State</label>
                 <select id="shipState" class="shipInput shipInfo checkoutInput" required>
-                            <option value=""> </option>
+                            <option disabled selected value>Select State</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -133,24 +130,24 @@
                             <option value="WV">West Virginia</option>
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
-                        </select></br>
-                <button class="buttonPurchase buttonDefault" role="button" id="confirmshipment">Click to confirm Shipping address</button>
+                        </select><br>
+                <button class="buttonPurchase buttonDefault" id="confirmshipment">Click to confirm Shipping address</button>
             </fieldset>
             <fieldset id="paymentInfo" hidden>
-                <label for="cardNumber">Card Number</label><input type="text" id="cardNumber" class="payInputCard checkoutInput" pattern="^\d{16}" required></br>
-                <label for="expiration">Expiration</label> <input type="text" class="payInputCard checkoutInput" id="expiration" placeholder="mm/yy" required></br>
-                <label for="cvv">CVV</label><input type="password" id="cvv" class="payInputCard checkoutInput" required></br>
-                <label for="cardHolderName">Name On Card</label> <input type="text" id="cardHolderName" class="payInputCard checkoutInput" required></br>
-                <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox" id="sameAddrAsShip" class="checkoutInput"></br>
-                <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput checkoutInput" placeholder="(XXX)XXX-XXXX" required></br>
-                <label for="payEmail">Email Address</label><input id="payEmail" type="text" class="payInput payInfo checkoutInput" required></br>
-                <label for="PayAddressLineOne">Address Line One</label> <input type="text" class="payInput checkoutInput" id="payAddressLineOne" required></br>
-                <label for="payAddressLineTwo">Address Line Two</label> <input type="text" class="payInput checkoutInput" id="payAddressLineTwo"></br>
-                <label for="payCity">City</label> <input type="text" class="payInput checkoutInput" id="payCity" required></br>
-                <label for="payZipCode">Zip Code</label><input type="text" class="payInput checkoutInput" id="payZipCode" pattern="^\d{5}" required></br>
+                <label for="cardNumber">Card Number</label><input type="text" id="cardNumber" class="payInputCard checkoutInput" pattern="^\d{16}" required><br>
+                <label for="expiration">Expiration</label> <input type="text" class="payInputCard checkoutInput" id="expiration" placeholder="mm/yy" required><br>
+                <label for="cvv">CVV</label><input type="password" id="cvv" class="payInputCard checkoutInput" required><br>
+                <label for="cardHolderName">Name On Card</label> <input type="text" id="cardHolderName" class="payInputCard checkoutInput" required><br>
+                <label for="sameAddrAsShip">Same address as shipping?</label><input type="checkbox" id="sameAddrAsShip" class="checkoutInput"><br>
+                <label for="payPhone">Phone Number</label><input type="text" id="payPhone" class="payInput checkoutInput" placeholder="(XXX)XXX-XXXX" required><br>
+                <label for="payEmail">Email Address</label><input id="payEmail" type="text" class="payInput payInfo checkoutInput" required><br>
+                <label for="payAddressLineOne">Address Line One</label> <input type="text" class="payInput checkoutInput" id="payAddressLineOne" required><br>
+                <label for="payAddressLineTwo">Address Line Two</label> <input type="text" class="payInput checkoutInput" id="payAddressLineTwo"><br>
+                <label for="payCity">City</label> <input type="text" class="payInput checkoutInput" id="payCity" required><br>
+                <label for="payZipCode">Zip Code</label><input type="text" class="payInput checkoutInput" id="payZipCode" pattern="^\d{5}" required><br>
                 <label for="payState">State</label>
                 <select id="payState" class="payInput checkoutInput" required>
-                            <option value="blank"> </option>
+                    <option disabled selected value>Select State</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -202,8 +199,8 @@
                             <option value="WV">West Virginia</option>
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
-                        </select></br>
-                <button class="buttonPurchase buttonDefault" role="button" id="confirmPayment">Click to pay</button>
+                        </select><br>
+                <button class="buttonPurchase buttonDefault" id="confirmPayment">Click to pay</button>
             </fieldset>
         </div>
     </section>
@@ -212,10 +209,10 @@
     <footer>
         <div class="footerItem1">
             Our Props to You &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact Us: <a href="mailto:ourpropstoyou@gmail.com">
-            ourpropstoyou@gmail.com</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright &copy; 2020 OPTY</p>
-            
+            ourpropstoyou@gmail.com</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copyright &copy; 2020 OPTY
+
         </div>
-      </footer>
+    </footer>
 </body>
 
 </html>
