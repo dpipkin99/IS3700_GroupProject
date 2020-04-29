@@ -119,14 +119,15 @@ nav {
         background-color: rgba(0, 0, 0, 0.452);
     }
     #itemsForSaleContainer {
-        display:flex;
+        display: flex;
         flex-direction: column;
         border-right: 1px solid #fff;
     }
-   
     #cartContainer {
         grid-area: cartContainer;
-
+    }
+    .totalRow {
+        padding-bottom: 20px;
     }
     .footerItem1 {
         position: static;
@@ -140,12 +141,7 @@ nav {
         letter-spacing: 3px;
         text-align: center;
     }
-       
-
-    
 }
-
-
 
 .gallery {
     width: auto;
