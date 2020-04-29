@@ -334,6 +334,13 @@ p {
     background-color: palegoldenrod;
 }
 
+.cartname {
+    text-align: center;
+    color: palegoldenrod;
+    background-color: black;
+    letter-spacing: 5px;
+}
+
 .confirmation {
     text-align: center;
     color: white;
