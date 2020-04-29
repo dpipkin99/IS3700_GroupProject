@@ -115,7 +115,7 @@ nav {
     }
     #shopContainer {
         display: grid;
-        grid-template-areas: 'itemsForSaleContainer' 'cartContainer';
+        grid-template-rows: 'itemsForSaleContainer cartContainer';
         background-color: rgba(0, 0, 0, 0.452);
     }
     #itemsForSaleContainer {
@@ -156,7 +156,6 @@ nav {
 .grid-container {
     display: grid;
     grid-template-areas: 'header' 'main' 'footer';
-
 }
 
 .item1 {
@@ -251,6 +250,7 @@ p {
     border-right: 1px solid #fff;
 }
 
+
 /* Shop CSS */
 
 .itemTitle {
@@ -266,8 +266,6 @@ p {
     color: palegoldenrod;
     background-color: black;
 }
-
-
 
 .cartRow {
     display: flex;
@@ -336,8 +334,15 @@ p {
     background-color: palegoldenrod;
 }
 
+.confirmation {
+    text-align: center;
+    color: white;
+}
+
 .informationFields {
     grid-area: information;
+    overflow: scroll;
+    height: 85vh;
 }
 
 .confirmShippin {
@@ -431,19 +436,8 @@ input[type=submit]:hover {
     width: 50%;
 }
 
-
-
-.leftside {
-
-}
-
-.rightside {
-
-}
-
 .contactinfo {
     font-family: Georgia, 'Times New Roman', Times, serif;
-
     letter-spacing: 5px;
     color: palegoldenrod;
     background-color: black;
@@ -468,7 +462,6 @@ input[type=submit]:hover {
     color: white;
     text-transform: uppercase;
     letter-spacing: 5px;
-
 }
 
 .names {
@@ -480,6 +473,7 @@ input[type=submit]:hover {
     text-transform: uppercase;
     letter-spacing: 5px;
 }
+
 
 /* The Close Button */
 
@@ -504,6 +498,7 @@ input[type=submit]:hover {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
 }
+
 .OPTY {
     color: palegoldenrod;
     background-color: black;
@@ -513,6 +508,7 @@ input[type=submit]:hover {
     outline-style: dotted;
     outline-color: palegoldenrod;
 }
+
 .info {
     color: black;
 }
@@ -525,10 +521,12 @@ input[type=submit]:hover {
     font-size: x-large;
     align-content: center;
 }
+
 .aboutus {
     outline-style: dotted;
     outline-color: palegoldenrod;
 }
+
 .story {
     color: palegoldenrod;
     text-align: center;
@@ -541,16 +539,16 @@ input[type=submit]:hover {
     background-color: black;
 }
 
-
-
 .location {
     color: palegoldenrod;
     text-align: center;
     background-color: black;
 }
+
 .map {
     text-align: center;
 }
+
 
 /*footer*/
 
