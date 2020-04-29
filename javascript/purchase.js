@@ -162,7 +162,7 @@ function validatePayInfo() {
     }
 
     for (var i = 0; i < textInputs.length; i++) {
-        if (textInputs[i].backgroundColor == "red" || textInputs[i].value == null) {
+        if (textInputs[i].backgroundColor == "red" || textInputs[i].value == "") {
             for (var x = 0; x < labelTargets.length; x++) {
                 if (textInputs[i].id == labelTargets[x]) {
                     var id = document.querySelector("#" + labelTargets[x]);
@@ -244,7 +244,7 @@ function activeValidationShip() {
             } else {
                 shipZipCode.style.backgroundColor = "white";
             }
-            if (shipState.value == "blank") {
+            if (!shipState.value) {
                 shipState.style.backgroundColor = "red";
             } else {
                 shipState.style.backgroundColor = "white";
@@ -300,7 +300,7 @@ function activeValidationShip() {
             } else {
                 payZipCode.style.backgroundColor = "white";
             }
-            if (payState.value == "blank") {
+            if (!payState.value) {
                 payState.style.backgroundColor = "red";
             } else {
                 payState.style.backgroundColor = "white";
